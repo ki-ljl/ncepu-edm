@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7adfb8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:background="#7adfb8">
+
+        <TextView
+            android:id="@+id/query"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="成绩查询"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textSize="35sp"
+            android:textAlignment="center">
+        </TextView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.2"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+
+            <Button
+                android:id="@+id/exam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textAllCaps="false"
+                android:text="考试查询"
+                android:textSize="22sp"
+                android:background="@drawable/selector_2"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.3"
+            android:background="#7adfb8">
+
+
+            <Button
+                android:id="@+id/semester_grades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textAllCaps="false"
+                android:text="学期成绩查询"
+                android:textSize="22sp"
+                android:background="@drawable/selector_1"/>
+
+            <Button
+                android:id="@+id/timetable_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="false"
+                android:text="课程表"
+                android:textSize="22sp"
+                android:background="@drawable/selector_3"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0.3"
+            android:background="#7adfb8">
+
+
+            <Button
+                android:id="@+id/single_sub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:textAllCaps="false"
+                android:text="单科排名"
+                android:textSize="22sp"
+                android:background="@drawable/selector_4"/>
+
+            <Button
+                android:id="@+id/grade_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="false"
+                android:text="学期成绩占比"
+                android:textSize="22sp"
+                android:background="@drawable/selector_5"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

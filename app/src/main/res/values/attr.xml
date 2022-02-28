@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <declare-styleable name="ItemView">
+                <attr name="left_icon" format="integer"/>
+                <attr name="show_left_icon" format="boolean"/>
+                <attr name="left_text" format="string"/>
+                <attr name="right_text" format="string"/>
+                <attr name="show_right_arrow" format="boolean"/>
+                <attr name="show_bottom_line" format="boolean"/>
+         </declare-styleable>
+       <declare-styleable name="circle_progress_view">
+           <!--进度条的宽度-->
+           <attr name="progress_paint_width" format="dimension"></attr>
+           <!--进度条颜色-->
+           <attr name="progress_paint_color" format="color"></attr>
+           <!--字体颜色-->
+           <attr name="progress_text_color_top" format="color"></attr>
+           <!--字体大小-->
+           <attr name="progress_text_size_top" format="dimension"></attr>
+           <!--字体颜色-->
+           <attr name="progress_text_color_bottom" format="color"></attr>
+           <!--字体大小-->
+           <attr name="progress_text_size_bottom" format="dimension"></attr>
+       </declare-styleable>
+
+    <declare-styleable name="PieView">
+        <attr name="centerTextSize" format="dimension" />
+        <attr name="dataTextSize" format="dimension" />
+        <attr name="centerTextColor" format="color" />
+        <attr name="dataTextColor" format="color" />
+        <attr name="circleWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LayerInfoTableView">
+        <attr name="head_bg" format="color" />
+        <attr name="border" format="dimension" />
+        <attr name="head_height" format="dimension" />
+        <attr name="content_height" format="dimension" />
+    </declare-styleable>
+
+</resources>

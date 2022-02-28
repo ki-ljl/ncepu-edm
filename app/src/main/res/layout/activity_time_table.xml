@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".Student.TimeTable.TimeTableActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@drawable/btn_bg_blue"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/AppTheme">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_week_of_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="第1周"
+                android:textColor="@color/bg_white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.562"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/bg_white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_week_of_term"
+                app:layout_constraintStart_toStartOf="@+id/tv_week_of_term"
+                app:layout_constraintTop_toBottomOf="@+id/tv_week_of_term" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/img_btn_scan"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:layout_marginLeft="0dp"-->
+<!--                app:srcCompat="@drawable/back_arrow_2" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/iv_bg_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/header_week_height"
+                android:background="@color/header_week_color"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_month"
+                    android:layout_width="@dimen/table_header_class_width"
+                    android:layout_height="match_parent"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_mon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/header_text_color"
+                    android:text="@string/mon" />
+
+                <TextView
+                    android:id="@+id/tv_tues"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/header_text_color"
+                    android:text="@string/tues" />
+
+                <TextView
+                    android:id="@+id/tv_wed"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/header_text_color"
+                    android:text="@string/wed" />
+
+                <TextView
+                    android:id="@+id/tv_thur"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/header_text_color"
+                    android:text="@string/thur" />
+
+                <TextView
+                    android:id="@+id/tv_fri"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/header_text_color"
+                    android:text="@string/fri" />
+
+                <TextView
+                    android:id="@+id/tv_sat"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/header_text_color"
+                    android:text="@string/sat" />
+
+                <TextView
+                    android:id="@+id/tv_sun"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/header_text_color"
+                    android:text="@string/sun" />
+
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <!--节数表头-->
+                    <LinearLayout
+                        android:id="@+id/ll_header_class_num"
+                        android:layout_width="@dimen/table_header_class_width"
+                        android:layout_height="@dimen/timetable_height"
+                        android:background="@color/header_class_color"
+                        android:orientation="vertical"></LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl_timetable"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/timetable_height"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:id="@+id/img_btn_add"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/content_new"
+                            android:visibility="gone" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

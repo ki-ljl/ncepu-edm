@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F1DA"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/h_back"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:layout_width="match_parent"
+            android:layout_height="196dp" />
+
+        <ImageView
+            android:id="@+id/h_head"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/h_back"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/user_line"
+                android:layout_width="1dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:background="@android:color/white" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_toLeftOf="@id/user_line"
+                android:text="李俊良"
+                android:textColor="@android:color/white"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/user_class"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/user_line"
+                android:text="计算1801"
+                android:textColor="@android:color/white"
+                android:textSize="17sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/dept"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_dept"
+        app:left_text="学院"
+        app:right_text="控制与计算机工程学院"/>
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/user_major"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_major"
+        app:left_text="专业"
+        app:right_text="计算机科学与技术" />
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/user_year"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_year"
+        app:left_text="入学年份"
+        app:right_text="2018" />
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_id"
+        app:left_text="学号"
+        app:right_text="120181080119" />
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/sex"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_sex"
+        app:left_text="性别"
+        app:right_text="男" />
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/signName"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_sign_name"
+        app:left_text="个性签名"
+        app:right_text="Hungry And Humble" />
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/csdn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_csdn"
+        app:left_text="作者博客"
+        app:right_text="联系开发者"/>
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_logout"
+        app:left_text="退出登录"
+        app:right_text="" />
+
+    <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_about"
+        app:left_text="检查更新"
+        app:right_text="" />
+</LinearLayout>
+</ScrollView>

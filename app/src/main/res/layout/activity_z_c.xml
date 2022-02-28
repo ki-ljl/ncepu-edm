@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F0F3F6"
+    android:orientation="vertical"
+    tools:context=".Student.Query.ZCActivity">
+
+    <LinearLayout
+        android:id="@+id/ly_back_zc"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/back"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back_zc"
+            android:layout_width="18dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/back_arrow_2" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_info_zc"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="117.6dp"-->
+<!--            android:text="综合测评"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="20sp" />-->
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_query_zc"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape"
+        android:text="查询"
+        android:textSize="18sp"/>
+
+    <ExpandableListView
+        android:id="@+id/expand_lv_zc"
+        android:layout_margin="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F3F6"
+        android:divider="@null">
+    </ExpandableListView>
+</LinearLayout>

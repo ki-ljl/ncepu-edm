@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical"
+    android:padding="7dp">
+
+    <TextView
+        android:id="@+id/tv_90"
+        android:paddingLeft="25dp"
+        style="@style/item_child_grade" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.5dp"
+        android:background="#B4B3B3"/>
+
+    <TextView
+        android:id="@+id/tv_80"
+        android:paddingLeft="25dp"
+        style="@style/item_child_grade" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.5dp"
+        android:background="#B4B3B3"/>
+
+    <TextView
+        android:id="@+id/tv_70"
+        android:paddingLeft="25dp"
+        style="@style/item_child_grade" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.5dp"
+        android:background="#B4B3B3"/>
+
+    <TextView
+        android:id="@+id/tv_60"
+        android:paddingLeft="25dp"
+        style="@style/item_child_grade" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.5dp"
+        android:background="#B4B3B3"/>
+
+    <TextView
+        android:id="@+id/tv_final_res"
+        android:paddingLeft="25dp"
+        style="@style/item_child_grade" />
+
+</LinearLayout>

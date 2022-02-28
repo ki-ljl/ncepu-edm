@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F0F3F6"
+    android:orientation="vertical"
+    tools:context=".Student.Query.GradeActivity">
+
+    <LinearLayout
+        android:id="@+id/ly_back_gpa_sort"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/back"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back_gpa_sort"
+            android:layout_width="18dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/back_arrow_2" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_info_gpa_sort"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="110dp"-->
+<!--            android:text="绩点排名"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="20sp" />-->
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ly_multiply_gpa_sort"
+        style="@style/bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:clickable="false"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/school_year_gpa_sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:padding="5dp"
+            android:textColor="#808080"
+            android:textSize="16sp"
+            android:text="学年"
+            android:gravity="center"
+            android:background="@drawable/bg_btn_trans"/>
+
+
+        <Button
+            android:id="@+id/semester_gpa_sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:padding="5dp"
+            android:textColor="#808080"
+            android:textSize="16sp"
+            android:text="学期"
+            android:gravity="center"
+            android:background="@drawable/bg_btn_trans"/>
+
+
+        <Button
+            android:id="@+id/course_gpa_sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:padding="5dp"
+            android:textColor="#808080"
+            android:textSize="16sp"
+            android:text="查询性质"
+            android:gravity="center"
+            android:background="@drawable/bg_btn_trans"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_query_gpa_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape"
+        android:text="查 询"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_gpa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="GPA:0.00"
+        android:textColor="#FF0000"
+        android:textSize="25sp"
+        android:textAlignment="center">
+    </TextView>
+
+    <com.example.NCEPU.Utils.GPASortProgressView
+        android:id="@+id/circleProgress_gpa_sort"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="55dp"
+        app:progress_paint_width="30dp"
+        app:progress_text_color_bottom="#000000"
+        app:progress_text_color_top="#FF0000"
+        app:progress_text_size_bottom="20dp"
+        app:progress_text_size_top="40dp">
+    </com.example.NCEPU.Utils.GPASortProgressView>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--控件大小=layout+margin+padding-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grid_item_text_view"
+    android:layout_width="60dp"
+    android:layout_height="134dp"
+    android:layout_margin="3dp"
+    android:gravity="center_vertical"
+    android:textColor="@color/bg_white" />
+

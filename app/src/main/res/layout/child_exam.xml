@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical"
+    android:padding="7dp">
+
+    <TextView
+        android:id="@+id/grade_class_exam"
+        style="@style/item_child_grade" />
+
+    <TextView
+        android:id="@+id/tv_xn_exam"
+        style="@style/item_child_grade" />
+
+    <TextView
+        android:id="@+id/tv_xq_exam"
+        style="@style/item_child_grade" />
+
+    <TextView
+        android:id="@+id/tv_course_code_exam"
+        style="@style/item_child_grade" />
+
+    <TextView
+        android:id="@+id/tv_class_comp_exam"
+        style="@style/item_child_grade" />
+
+
+    <TextView
+        android:id="@+id/tv_school_time_exam"
+        style="@style/item_child_grade" />
+
+    <TextView
+        android:id="@+id/tv_major_exam"
+        style="@style/item_child_grade" />
+
+    <TextView
+        android:id="@+id/tv_campus_exam"
+        style="@style/item_child_grade" />
+
+
+    <TextView
+        android:id="@+id/tv_teacher_exam"
+        style="@style/item_child_grade" />
+
+
+</LinearLayout>

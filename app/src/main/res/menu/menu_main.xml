@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item-->
+<!--        android:id="@+id/menu_import"-->
+<!--        android:title="@string/menu_import" />-->
+<!--    <item-->
+<!--        android:id="@+id/menu_append"-->
+<!--        android:title="@string/menu_append" />-->
+    <item
+        android:id="@+id/menu_set_week"
+        android:title="@string/menu_set_current_week" />
+<!--    <item-->
+<!--        android:id="@+id/menu_append_class"-->
+<!--        android:title="@string/menu_append_class" />-->
+<!--    <item-->
+<!--        android:id="@+id/menu_share_timetable"-->
+<!--        android:title="@string/menu_share" />-->
+    <item
+        android:id="@+id/menu_set_time"
+        android:title="@string/menu_set_time"/>
+    <item
+        android:id="@+id/menu_config"
+        android:title="@string/menu_config" />
+<!--    <item-->
+<!--        android:id="@+id/menu_update"-->
+<!--        android:title="@string/menu_update" />-->
+</menu>

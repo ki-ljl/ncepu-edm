@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student.Query.TeachingEvaluationActivity">
+
+    <LinearLayout
+        android:id="@+id/ly_back_tong"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/back"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back_tong"
+            android:layout_width="18dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/back_arrow_2" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_info_tong"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="117.6dp"-->
+<!--            android:text="通知公告"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="20sp" />-->
+    </LinearLayout>
+
+
+    <WebView
+        android:id="@+id/eval"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

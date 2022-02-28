@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="itemSelected">#58a2bf</color>
+    <color name="itemUnSelected">#000</color>
+    <color name="bg_black">#000000</color>
+    <color name="bg_white">#FFFFFF</color>
+    <color name="header_week_color">#CCD3D3D3</color>
+    <color name="header_class_color">#CCD0D0D0</color>
+    <color name="background_color_white">#EEEEEE</color>
+    <color name="day_of_week_color">#CC87CEFA</color>
+    <color name="header_text_color">#0C0B0B</color>
+    <color name="bg_topbar">#FCFCFC</color>
+    <color name="bg_gray">#00F1F1F1</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="textColor">#cdcdcd</color>
+
+    <color name="item_orange">#ccFFB90F</color>
+    <color name="item_tomato">#ccFF6347</color>
+    <color name="item_green">#cc54FF9F</color>
+    <color name="item_cyan">#cc00E5EE</color>
+    <color name="item_purple">#cc836FFF</color>
+    <color name="item_gray">#ccD3D3D3</color>
+    <color name="colorLightBlue">#87CEFA</color>
+    <color name="colorGray">#D3D3D3</color>
+    <color name="text_view_color">#0C0B0B</color>
+    <color name="colorOrange">#ffc450</color>
+    <color name="colorLightGray">#eaeff5</color>
+
+
+
+
+
+    <color name="paint_current">#29E516</color>
+    <color name="paint_out">#F6F82B</color>
+
+
+    <color name="colorTransparent">#99D0D0D0</color>
+    <color name="text_green">#38F709</color>
+    <color name="text_gray">#8D7A71</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_yellow">#FFC800</color>
+    <color name="text_topbar">#694E42</color>
+    <color name="div_white">#E5E5E5</color>
+    <color name="text_black">#0B3102</color>
+    <color name="border_clo">#ccc</color>
+
+    <color name="cc">#cccc</color>
+    <color name="main_color">#4992c3</color>
+
+    <!--标题栏的颜色 -->
+    <color name="title">#519fc1</color>
+
+    <!--返回栏的颜色 -->
+    <color name="back">#6666FF</color>
+
+
+
+    <color name="textInputLayout">#96ffffff</color>
+</resources>

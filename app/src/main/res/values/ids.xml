@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="about_version_code" type="id"/>
+    <item name="split" type="id"/>
+</resources>

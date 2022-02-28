@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F0F3F6"
+    android:orientation="vertical"
+    tools:context=".Student.Query.SingleSubjectMajorActivity">
+
+    <LinearLayout
+        android:id="@+id/ly_back_major"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/back"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back_major"
+            android:layout_width="18dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/back_arrow_2"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_info_major"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="117.6dp"-->
+<!--            android:text="单科分析"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="20sp" />-->
+    </LinearLayout>
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_comp_major"
+            android:layout_width="match_parent"
+            style="@style/bg_layout"
+            android:layout_height="39dp"
+            android:textSize="16sp"
+            android:textColor="#DE6210"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:hint="输入科目名称:"
+            android:background="@drawable/edittext_selector"
+            android:maxLines="1"
+            android:paddingBottom="2dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:completionThreshold="1">
+        </AutoCompleteTextView>
+
+
+    <Button
+        android:id="@+id/btn_query_major"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape"
+        android:text="查 询"
+        android:textSize="18sp" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/show_tv"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--    </TextView>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="名次">
+        </TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="分数">
+        </TextView>
+    </LinearLayout>
+
+    <TextView
+        android:background="#808080"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"/>
+
+    <com.example.NCEPU.Utils.MyGridView
+        android:id="@+id/gv_sort"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="3dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:horizontalSpacing="2dp"
+        android:numColumns="2"
+        android:padding="3dp"
+        android:scrollbars="none"
+        android:verticalSpacing="2dp">
+    </com.example.NCEPU.Utils.MyGridView>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pie_chart_major"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.github.mikephil.charting.charts.PieChart>
+
+</LinearLayout>

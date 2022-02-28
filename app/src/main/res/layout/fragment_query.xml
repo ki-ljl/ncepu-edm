@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/abl_education"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/full_match"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/main_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="@android:color/transparent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="175.5dp">
+                </com.youth.banner.Banner>
+
+                <LinearLayout
+                    android:id="@+id/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:text="个人教务"
+                        android:textColor="#000000"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <com.example.NCEPU.Utils.MyGridView
+                    android:id="@+id/gv_education"
+                    android:layout_width="match_parent"
+                    android:layout_height="204.75dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#fff"
+                    android:gravity="center"
+                    android:numColumns="4"
+                    android:verticalSpacing="0dp"
+                    android:scrollbars="none">
+                </com.example.NCEPU.Utils.MyGridView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:text="数据可视化"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <com.example.NCEPU.Utils.MyGridView
+                    android:id="@+id/gv_vision"
+                    android:layout_width="match_parent"
+                    android:layout_height="204.75dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#fff"
+                    android:gravity="center"
+                    android:numColumns="4"
+                    android:scrollbars="none">
+                </com.example.NCEPU.Utils.MyGridView>
+
+            </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+</LinearLayout>
+</ScrollView>

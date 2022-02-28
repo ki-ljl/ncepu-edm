@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Student.Query.TendencyActivity">
+
+    <LinearLayout
+        android:id="@+id/ly_back_tend"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/back"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back_tend"
+            android:layout_width="18dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/back_arrow_2" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_info_tend"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginLeft="117.8dp"-->
+<!--            android:text="GPA走势"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="20sp" />-->
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ly_multiply_tend"
+        style="@style/bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="false"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/nature_tend"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="2"
+            android:padding="5dp"
+            android:textColor="#808080"
+            android:textSize="16sp"
+            android:text="查询性质"
+            android:gravity="center"
+            android:background="@drawable/bg_btn_trans"/>
+
+        <Button
+            android:id="@+id/btn_query_tend"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="2"
+            android:background="@drawable/shape"
+            android:text="查 询"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <lecho.lib.hellocharts.view.ComboLineColumnChartView
+        android:id="@+id/combine_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

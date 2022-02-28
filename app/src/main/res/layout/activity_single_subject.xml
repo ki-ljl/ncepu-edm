@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context="com.example.NCEPU.Student.Query.SingleSubjectActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#5DC45D">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="单科成绩及排名查询"
+            android:textSize="20sp"
+            android:paddingTop="20dp"
+            android:paddingLeft="25dp"
+            android:paddingBottom="10dp"
+            android:textColor="#FFFFFF">
+        </TextView>
+
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_comp"
+            android:layout_width="320dp"
+            android:layout_height="39dp"
+            android:textSize="16sp"
+            android:textColor="#DE6210"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:drawableRight="@mipmap/tab_query_normal"
+            android:hint="输入科目名称:"
+            android:background="@drawable/edittext_selector"
+            android:maxLines="1"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginLeft="21dp"
+            android:completionThreshold="1">
+        </AutoCompleteTextView>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="排名："
+        android:textColor="#FF0000"
+        android:textSize="25sp"
+        android:textAlignment="center">
+    </TextView>
+
+    <com.example.NCEPU.Utils.ProgressView
+        android:id="@+id/circleProgress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="55dp"
+        app:progress_paint_width="30dp"
+        app:progress_text_color_bottom="#000000"
+        app:progress_text_color_top="#FF0000"
+        app:progress_text_size_bottom="20dp"
+        app:progress_text_size_top="40dp">
+    </com.example.NCEPU.Utils.ProgressView>
+
+
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/course_details_bg_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student.TimeTable.ui.coursedetails.CourseDetailsActivity">
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="5dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_course_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:alpha="0.7"
+            android:background="@color/bg_white"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="3dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_class_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="@dimen/course_name" />
+
+                    <Button
+                        android:id="@+id/btn_edit"
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/seletor_button"
+                        android:text="@string/edit_course_btn" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/shape_line"
+                    android:layerType="software" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/classroom"
+                        android:textSize="@dimen/course_details_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_class_room"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_view_color"
+                        android:textSize="@dimen/course_details_text_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/week_of_term"
+                        android:textSize="@dimen/course_details_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_week_of_term"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_view_color"
+                        android:textSize="@dimen/course_details_text_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/classLength"
+                        android:textSize="@dimen/course_details_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_class_num"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_view_color"
+                        android:textSize="@dimen/course_details_text_size" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/teacher"
+                        android:textSize="@dimen/course_details_text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_teacher"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_view_color"
+                        android:textSize="@dimen/course_details_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</FrameLayout>
