@@ -146,15 +146,15 @@ public class GradeGpaActivity extends AppCompatActivity implements View.OnClickL
             case R.id.school_year_gpa_grade:
                 @SuppressLint("WrongConstant") final FlipShareView shareYear = new FlipShareView.Builder(this, year)
                         .addItem(new ShareItem("全部", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2024-2025", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2023-2024", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2022-2023", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2021-2022", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2020-2021", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2019-2020", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2018-2019", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2017-2018", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2016-2017", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("24-25", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("23-24", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("22-23", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("21-22", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("20-21", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("19-20", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("18-19", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("17-18", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("16-17", Color.BLACK, 0xffEEEEFF))
                         .setItemDuration(0)
                         .setAnimType(FlipShareView.AUTOFILL_TYPE_LIST)
                         .create();
@@ -219,6 +219,7 @@ public class GradeGpaActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.btn_query_gpa_grade:
                 String yearString = year.getText().toString();
+                yearString = "20" + yearString;
                 String semesterString = semester.getText().toString();
                 String course_nature = nature.getText().toString();
                 if(yearString.equals("学年")) {

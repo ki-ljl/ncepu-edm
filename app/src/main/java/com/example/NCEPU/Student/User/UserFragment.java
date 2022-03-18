@@ -1,5 +1,8 @@
 package com.example.NCEPU.Student.User;
 
+import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +22,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.ClipboardManager;
 
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
@@ -57,6 +63,8 @@ public class UserFragment extends Fragment {
     private ItemView mMajor;
     private ItemView mYear;
     private ItemView mCSDN;
+    private ItemView mGithub;
+    private ItemView mWechat;
 
     public static String stu_name, stu_class, stu_id, stu_dept;
     public static String stu_sex, stu_major, stu_year;
@@ -87,10 +95,12 @@ public class UserFragment extends Fragment {
         mMajor = view.findViewById(R.id.user_major);
         mYear = view.findViewById(R.id.user_year);
         mSex =  view.findViewById(R.id.sex);
-        mSignName =  view.findViewById(R.id.signName);
+//        mSignName =  view.findViewById(R.id.signName);
         mCSDN = view.findViewById(R.id.csdn);
         mLogout =  view.findViewById(R.id.logout);
-        mVersion = view.findViewById(R.id.version);
+//        mVersion = view.findViewById(R.id.version);
+        mGithub = view.findViewById(R.id.github);
+        mWechat = view.findViewById(R.id.wechat);
 
         // 初始化
         sharedPreferences = getActivity().getSharedPreferences("user_info", Context.MODE_PRIVATE);
@@ -148,18 +158,18 @@ public class UserFragment extends Fragment {
         linearParams = (LinearLayout.LayoutParams)mSex.getLayoutParams();
         linearParams.height = dip2px(getContext(), (float) (pagerHeight * 0.07777));
         mSex.setLayoutParams(linearParams);
-        linearParams = (LinearLayout.LayoutParams)mSignName.getLayoutParams();
+        linearParams = (LinearLayout.LayoutParams)mGithub.getLayoutParams();
         linearParams.height = dip2px(getContext(), (float) (pagerHeight * 0.07777));
-        mSignName.setLayoutParams(linearParams);
+        mGithub.setLayoutParams(linearParams);
         linearParams = (LinearLayout.LayoutParams)mCSDN.getLayoutParams();
         linearParams.height = dip2px(getContext(), (float) (pagerHeight * 0.07777));
         mCSDN.setLayoutParams(linearParams);
         linearParams = (LinearLayout.LayoutParams)mLogout.getLayoutParams();
         linearParams.height = dip2px(getContext(), (float) (pagerHeight * 0.07777));
         mLogout.setLayoutParams(linearParams);
-        linearParams = (LinearLayout.LayoutParams)mVersion.getLayoutParams();
+        linearParams = (LinearLayout.LayoutParams)mWechat.getLayoutParams();
         linearParams.height = dip2px(getContext(), (float) (pagerHeight * 0.07777));
-        mVersion.setLayoutParams(linearParams);
+        mWechat.setLayoutParams(linearParams);
     }
 
     @Override
@@ -202,6 +212,20 @@ public class UserFragment extends Fragment {
         }
     }
 
+    private void getWechatApi(){
+        try {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            ComponentName cmp = new ComponentName("com.tencent.mm","com.tencent.mm.ui.LauncherUI");
+            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setComponent(cmp);
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // TODO: handle exception
+            ToastUtil.showMessage(getContext(), "检查到您手机没有安装微信，请安装后使用该功能");
+        }
+    }
+
     private void setData() {
         //数据初始化
         //学院
@@ -237,12 +261,12 @@ public class UserFragment extends Fragment {
         mCSDN.setShowRightArrow(true);
 
         //个性签名
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user_info", Context.MODE_PRIVATE);
-        String sign = sharedPreferences.getString("sign", "");
-        mSignName.setRightDesc(sign);
+//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user_info", Context.MODE_PRIVATE);
+//        String sign = sharedPreferences.getString("sign", "");
+//        mSignName.setRightDesc(sign);
 
         //更新
-        mVersion.setRightDesc("V1.0");
+//        mVersion.setRightDesc("V1.0");
 
         mHHead.setOnClickListener(v -> {
             Intent intent=new Intent();
@@ -308,6 +332,46 @@ public class UserFragment extends Fragment {
             }
         });
 
+        mGithub.setItemClickListener(new ItemView.itemClickListener() {
+            @Override
+            public void itemClick(String text) {
+                Intent intent = new Intent(getActivity(), GitHubActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mWechat.setItemClickListener(new ItemView.itemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void itemClick(String text) {
+                Context context = getContext();
+                ClipboardManager manager =(ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = ClipData.newPlainText("message","KI的算法杂记");
+                manager.setPrimaryClip(clipData);
+//                ToastUtil.showMessage(getContext(), "公众号名称复制成功!");
+                //跳转至公众号
+                try {
+                    AlertDialog.Builder builder1=new AlertDialog.Builder(getActivity());
+                    builder1.setTitle("提示").setMessage("公众号名称复制成功，需要为您跳转至微信吗？")
+                            .setIcon(R.drawable.icon_exit)
+                            .setPositiveButton("需要", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    getWechatApi();
+                                }
+                            }).setNeutralButton("不需要", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).show();
+
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         //性别
         mSex.setItemClickListener(new ItemView.itemClickListener() {
             @Override
@@ -347,7 +411,7 @@ public class UserFragment extends Fragment {
             public void itemClick(String text) {
                 try {
                     AlertDialog.Builder builder1=new AlertDialog.Builder(getActivity());
-                    builder1.setTitle("提示").setMessage("确认退出吗？")
+                    builder1.setTitle("提示").setMessage("退出登录后会清除所有信息，下次进入时需要重新登录，确认退出吗？")
                             .setIcon(R.drawable.icon_exit)
                             .setPositiveButton("确认", new DialogInterface.OnClickListener() {
                                 @Override
@@ -372,19 +436,19 @@ public class UserFragment extends Fragment {
             }
         });
         //修改个性签名
-        mSignName.setItemClickListener(new ItemView.itemClickListener() {
-            @Override
-            public void itemClick(String text) {
-                Intent intent = new Intent(getActivity(), SignatureActivity.class);
-                Bundle bundle = new Bundle();
-                String signature = mSignName.getRightDesc();
-                bundle.putString("signature",signature);
-                intent.putExtras(bundle);
-                startActivityForResult(intent, 110);
-            }
-        });
-
-        mVersion.setItemClickListener(text -> ToastUtil.showMessage(getContext(), "暂无新版本发布！"));
+//        mSignName.setItemClickListener(new ItemView.itemClickListener() {
+//            @Override
+//            public void itemClick(String text) {
+//                Intent intent = new Intent(getActivity(), SignatureActivity.class);
+//                Bundle bundle = new Bundle();
+//                String signature = mSignName.getRightDesc();
+//                bundle.putString("signature",signature);
+//                intent.putExtras(bundle);
+//                startActivityForResult(intent, 110);
+//            }
+//        });
+//
+//        mVersion.setItemClickListener(text -> ToastUtil.showMessage(getContext(), "暂无新版本发布！"));
 
     }
 }

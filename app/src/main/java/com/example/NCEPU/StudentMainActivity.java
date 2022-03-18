@@ -26,7 +26,7 @@ public class StudentMainActivity extends AppCompatActivity implements RadioGroup
     private RadioGroup rg_tab_bar;
     private RadioButton rb_main;
     private RadioButton rb_query;
-    private RadioButton rb_predict;
+//    private RadioButton rb_predict;
     private RadioButton rb_user;
     private ViewPager vpager;
 
@@ -82,7 +82,7 @@ public class StudentMainActivity extends AppCompatActivity implements RadioGroup
         rg_tab_bar =  findViewById(R.id.rg_tab_bar);
 //        rb_main =  findViewById(R.id.rb_main);
         rb_query =  findViewById(R.id.rb_query);
-        rb_predict =  findViewById(R.id.rb_predict);
+//        rb_predict =  findViewById(R.id.rb_predict);
         rb_user =  findViewById(R.id.rb_user);
         rg_tab_bar.setOnCheckedChangeListener(this);
 
@@ -130,11 +130,11 @@ public class StudentMainActivity extends AppCompatActivity implements RadioGroup
             case R.id.rb_query:
                 vpager.setCurrentItem(PAGE_ONE);
                 break;
-            case R.id.rb_predict:
-                vpager.setCurrentItem(PAGE_TWO);
-                break;
+//            case R.id.rb_predict:
+//                vpager.setCurrentItem(PAGE_TWO);
+//                break;
             case R.id.rb_user:
-                vpager.setCurrentItem(PAGE_THREE);
+                vpager.setCurrentItem(PAGE_TWO);
                 break;
         }
     }
@@ -156,10 +156,10 @@ public class StudentMainActivity extends AppCompatActivity implements RadioGroup
                 case PAGE_ONE:
                     rb_query.setChecked(true);
                     break;
+//                case PAGE_TWO:
+//                    rb_predict.setChecked(true);
+//                    break;
                 case PAGE_TWO:
-                    rb_predict.setChecked(true);
-                    break;
-                case PAGE_THREE:
                     rb_user.setChecked(true);
                     break;
             }

@@ -13,7 +13,7 @@ import com.example.NCEPU.Student.User.UserFragment;
 import com.example.NCEPU.StudentMainActivity;
 
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-    private final int PAGER_COUNT = 3;
+    private final int PAGER_COUNT = 2;
 
     private PredictFragment predictFragment;
     private QueryFragment queryFragment;
@@ -33,10 +33,10 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
             case StudentMainActivity.PAGE_ONE:
                 fragment = queryFragment;
                 break;
+//            case StudentMainActivity.PAGE_TWO:
+//                fragment = predictFragment;
+//                break;
             case StudentMainActivity.PAGE_TWO:
-                fragment = predictFragment;
-                break;
-            case StudentMainActivity.PAGE_THREE:
                 fragment = userFragment;
                 break;
         }

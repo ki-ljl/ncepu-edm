@@ -7,6 +7,55 @@
     android:orientation="vertical"
     tools:context=".Student.TimeTable.TimeTableActivity">
 
+    <LinearLayout
+        android:id="@+id/ly_multiply"
+        style="@style/bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="false"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/time_school_year"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="5"
+            android:padding="5dp"
+            android:textColor="#808080"
+            android:textSize="16sp"
+            android:text="学年"
+            android:gravity="center"
+            android:background="@drawable/bg_btn_trans"/>
+
+
+        <Button
+            android:id="@+id/time_semester"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="5"
+            android:padding="5dp"
+            android:textColor="#808080"
+            android:textSize="16sp"
+            android:text="学期"
+            android:gravity="center"
+            android:background="@drawable/bg_btn_trans"/>
+
+        <Button
+            android:id="@+id/time_query"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="5"
+            android:padding="5dp"
+            android:textColor="#808080"
+            android:textSize="16sp"
+            android:text="查询"
+            android:gravity="center"
+            android:background="@drawable/shape"/>
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -44,16 +93,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/tv_week_of_term"
                 app:layout_constraintStart_toStartOf="@+id/tv_week_of_term"
                 app:layout_constraintTop_toBottomOf="@+id/tv_week_of_term" />
-
-<!--            <ImageView-->
-<!--                android:id="@+id/img_btn_scan"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                android:layout_marginLeft="0dp"-->
-<!--                app:srcCompat="@drawable/back_arrow_2" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>

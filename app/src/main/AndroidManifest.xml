@@ -16,21 +16,13 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 允许读取手机状态 用于创建BmobInstallation -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-    <!--用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <!--用于访问GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <!--用于访问网络，网络定位需要上网-->
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <!--用于读取手机当前的状态-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <!--用于申请调用A-GPS模块-->
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
-
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -47,7 +39,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Student.Query.DailyActivity"></activity>
+        <activity android:name=".Student.User.GitHubActivity"></activity>
+        <activity android:name=".Student.Query.DailyActivity" />
         <activity android:name=".Student.Predict.MajorActivity" />
         <activity android:name=".Student.Predict.PoliticsActivity" />
         <activity android:name=".Student.Predict.KNNActivity" />
@@ -76,15 +69,15 @@
         <activity android:name=".Student.User.SignatureActivity" />
         <activity android:name=".Student.TimeTable.TimeTableActivity" />
         <activity android:name=".Student.Query.SingleSubjectActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".Utils.JellyInterpolator"
             tools:ignore="Instantiatable" />
-        <activity android:name=".StudentMainActivity">
-        </activity>
+        <activity android:name=".StudentMainActivity"></activity>
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -100,4 +93,5 @@
             android:theme="@style/Theme.AppCompat" />
         <activity android:name=".Student.TimeTable.ui.coursedetails.CourseDetailsActivity" />
     </application>
+
 </manifest>

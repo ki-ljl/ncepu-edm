@@ -144,15 +144,14 @@ public class QueryFragment extends Fragment {
         dept = sharedPreferences.getString("dept", "");
         gradeYear  =sharedPreferences.getString("year", "");
         eduGridView = v.findViewById(R.id.gv_education);
-        String []namesEdu = {"成绩查询", "课表查询", "考试安排", "GPA", "培养方案", "成绩总表", "综合测评"};
+        String []namesEdu = {"成绩查询", "课表查询", "考试安排", "GPA", "培养方案", "成绩总表"};
         int []imagesEdu = {R.drawable.query_mark, R.drawable.query_timetable, R.drawable.query_exam, R.drawable.query_credit,
-                R.drawable.query_cult, R.drawable.grade_total_1, R.drawable.query_zc};
+                R.drawable.query_cult, R.drawable.grade_total_1};
         GridViewAdapter gridViewAdapter1 = new GridViewAdapter(getActivity(), namesEdu, imagesEdu);
         eduGridView.setAdapter(gridViewAdapter1);
         visionGridView = v.findViewById(R.id.gv_vision);
-        String []namesVis = {"成绩占比", "成绩比较", "GPA走势", "单科分析", "专业排名", "挂科分析", "单科排名", "个人分析"};
-        int []imagesVis = {R.drawable.grade_rate, R.drawable.grade_pk, R.drawable.grade_tend, R.drawable.single_major_2,
-        R.drawable.major_sort, R.drawable.grade_loss, R.drawable.query_single_sort, R.drawable.radar};
+        String []namesVis = {"成绩占比", "成绩比较", "GPA走势", "个人分析"};
+        int []imagesVis = {R.drawable.grade_rate, R.drawable.grade_pk, R.drawable.grade_tend, R.drawable.radar};
         GridViewAdapter gridViewAdapter2 = new GridViewAdapter(getActivity(), namesVis, imagesVis);
         visionGridView.setAdapter(gridViewAdapter2);
         eduGridView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
@@ -320,9 +319,9 @@ public class QueryFragment extends Fragment {
                         startActivity(intent);
                         break;
 
-                    case 6:
-                        ToastUtil.showMessage(getContext(), "暂未开放!");
-                        break;
+//                    case 6:
+//                        ToastUtil.showMessage(getContext(), "暂未开放!");
+//                        break;
 //                        SharedPreferences sharedPreferences = getContext().getSharedPreferences("user_info", Context.MODE_PRIVATE);
 //                        String pass = sharedPreferences.getString("id", "");
 //                        pass += "_szhd";
@@ -396,47 +395,47 @@ public class QueryFragment extends Fragment {
                         startActivity(intent);
                         break;
 
+//                    case 3:
+////                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
+////                            intent = new Intent(getActivity(), SingleSubjectMajorActivity.class);
+////                            startActivity(intent);
+////                        }else {
+////                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
+////                        }
+//                        ToastUtil.showMessage(getContext(), "暂未开放!");
+//                        break;
+
+//                    case 4:
+////                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
+////                            intent = new Intent(getActivity(), MajorGPASortActivity.class);
+////                            startActivity(intent);
+////                        }else {
+////                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
+////                        }
+//                        ToastUtil.showMessage(getContext(), "暂未开放!");
+//                        break;
+
+//                    case 5:
+////                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
+////                            intent = new Intent(getActivity(), GradeFailedActivity.class);
+////                            startActivity(intent);
+////                        }else {
+////                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
+////                        }
+//                        ToastUtil.showMessage(getContext(), "暂未开放!");
+//                        break;
+
+//                    case 6:
+////                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
+////                            intent = new Intent(getActivity(), SingleSubjectActivity.class);
+////                            startActivity(intent);
+////                        }else {
+////                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
+////                        }
+//                        ToastUtil.showMessage(getContext(), "暂未开放!");
+//                        break;
+
                     case 3:
-//                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
-//                            intent = new Intent(getActivity(), SingleSubjectMajorActivity.class);
-//                            startActivity(intent);
-//                        }else {
-//                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
-//                        }
-                        ToastUtil.showMessage(getContext(), "暂未开放!");
-                        break;
-
-                    case 4:
-//                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
-//                            intent = new Intent(getActivity(), MajorGPASortActivity.class);
-//                            startActivity(intent);
-//                        }else {
-//                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
-//                        }
-                        ToastUtil.showMessage(getContext(), "暂未开放!");
-                        break;
-
-                    case 5:
-//                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
-//                            intent = new Intent(getActivity(), GradeFailedActivity.class);
-//                            startActivity(intent);
-//                        }else {
-//                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
-//                        }
-                        ToastUtil.showMessage(getContext(), "暂未开放!");
-                        break;
-
-                    case 6:
-//                        if(dept.equals("控制与计算机工程学院") && gradeYear.equals("2018")) {
-//                            intent = new Intent(getActivity(), SingleSubjectActivity.class);
-//                            startActivity(intent);
-//                        }else {
-//                            ToastUtil.showMessage(getContext(), "本功能仅对控制与计算机工程学院2018级同学开放!");
-//                        }
-                        ToastUtil.showMessage(getContext(), "暂未开放!");
-                        break;
-
-                    case 7:
                         intent = new Intent(getActivity(), AbilityActivity.class);
                         startActivity(intent);
                         break;

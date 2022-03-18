@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -23,6 +24,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -59,7 +61,15 @@ import com.example.NCEPU.Student.TimeTable.util.FileUtils;
 import com.example.NCEPU.Student.TimeTable.util.OkHttpUtils;
 import com.example.NCEPU.Student.TimeTable.util.ShareUtils;
 import com.example.NCEPU.Student.TimeTable.util.Utils;
+import com.example.NCEPU.Utils.Exam;
+import com.example.NCEPU.Utils.FlipShareView;
+import com.example.NCEPU.Utils.ShareItem;
+import com.example.NCEPU.Utils.ShowDialogUtil;
 import com.example.NCEPU.Utils.TimeTableUtil;
+import com.example.NCEPU.Utils.TimeUtils;
+import com.example.NCEPU.Utils.TimeUtils_4;
+import com.example.NCEPU.Utils.ToastUtil;
+import com.example.NCEPU.adapter.ExamAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
@@ -79,10 +89,13 @@ import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.example.NCEPU.MainActivity.connectJWGL;
+
 public class TimeTableActivity extends AppCompatActivity {
 
     private FrameLayout mFrameLayout;
     private TextView mWeekOfTermTextView;
+    private Button year, semester, query;
     private ImageView mBgImageView;
 //    private ImageView back;
     //private ImageButton mAddImgBtn;
@@ -148,6 +161,9 @@ public class TimeTableActivity extends AppCompatActivity {
         mFrameLayout = findViewById(R.id.fl_timetable);
         headerClassNumLl = findViewById(R.id.ll_header_class_num);
         textViewName = findViewById(R.id.textView);
+        year = findViewById(R.id.time_school_year);
+        semester = findViewById(R.id.time_semester);
+        query = findViewById(R.id.time_query);
 //        back = findViewById(R.id.img_btn_scan);
 //        back.setOnClickListener((View.OnClickListener) v -> onBackPressed());
 
@@ -175,13 +191,97 @@ public class TimeTableActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        //initScanQRCode();
-
         try {
-            initTimetable();
+            initTimetableStart();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //初始化year和semester选项
+        year.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                @SuppressLint("WrongConstant") final FlipShareView shareYear = new FlipShareView.Builder(TimeTableActivity.this, year)
+                        .addItem(new ShareItem("24-25", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("23-24", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("22-23", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("21-22", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("20-21", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("19-20", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("18-19", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("17-18", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("16-17", Color.BLACK, 0xffEEEEFF))
+//                        .setBackgroundColor(0xffccc)
+                        .setItemDuration(0)
+                        .setAnimType(FlipShareView.AUTOFILL_TYPE_LIST)
+                        .create();
+                shareYear.setOnFlipClickListener(new FlipShareView.OnFlipClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        year.setText(shareYear.mItemList.get(position).title);
+                    }
+
+                    @Override
+                    public void dismiss() {
+
+                    }
+                });
+            }
+        });
+        semester.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                @SuppressLint("WrongConstant") final FlipShareView shareSemester = new FlipShareView.Builder(TimeTableActivity.this, semester)
+                        .addItem(new ShareItem("1", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("2", Color.BLACK, 0xffEEEEFF))
+//                        .setSeparateLineColor(0x60000000)
+                        .setItemDuration(0)
+                        .setAnimType(FlipShareView.AUTOFILL_TYPE_LIST)
+                        .create();
+                shareSemester.setOnFlipClickListener(new FlipShareView.OnFlipClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        semester.setText(shareSemester.mItemList.get(position).title);
+                    }
+
+                    @Override
+                    public void dismiss() {
+
+                    }
+                });
+            }
+        });
+
+        //查询
+        query.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String years = year.getText().toString();
+                years = "20" + years;
+                String semester_ = semester.getText().toString();
+                if(years.equals("学年")) {
+                    ToastUtil.showMessage(TimeTableActivity.this,"请选择学年！");
+                }else if(semester_.equals("学期")) {
+                    ToastUtil.showMessage(TimeTableActivity.this, "请选择学期！");
+                }else {
+                    //开始查询考试信息并显示
+                    try {
+                        if(!TimeUtils_4.isFastClick()) {
+                            ToastUtil.showMessage(TimeTableActivity.this, "请不要频繁点击!");
+                        }else {
+                            years = years.substring(0, 4);
+                            initTimetable(years, Integer.parseInt(semester_));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        //initScanQRCode();
+
 
         Utils.setBackGround(this, mBgImageView);
 
@@ -678,8 +778,7 @@ public class TimeTableActivity extends AppCompatActivity {
     /**
      * 初始化课表
      */
-    private void initTimetable() throws Exception
-    {
+    private void initTimetable(String year, int semester) throws Exception {
         //初始化设置按钮
         //initAddBtn();
         //设置标题中显示的当前周数
@@ -698,7 +797,50 @@ public class TimeTableActivity extends AppCompatActivity {
 //                new TypeToken<ArrayList<Course>>() {
 //                }.getType());
 
-        sCourseList = TimeTableUtil.getCourse();
+        sCourseList = TimeTableUtil.getCourse(year, semester);
+
+        //更新节数表头
+        updateClassNumHeader();
+        //读取失败返回
+        if (sCourseList == null) {
+            sCourseList = new ArrayList<>();
+            return;
+        }
+
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info", Context.MODE_PRIVATE);
+        String name = sharedPreferences.getString("name", null);
+        if(name != null) {
+            textViewName.setText(name + "的课表");
+        }
+
+        int size = sCourseList.size();
+        if (size != 0) {
+            updateTimetable();
+        }
+
+        flagUpdateCalendar = false;
+    }
+
+    private void initTimetableStart() throws Exception {
+        //初始化设置按钮
+        //initAddBtn();
+        //设置标题中显示的当前周数
+        mWeekOfTermTextView.setText(String.format(getString(R.string.day_of_week), Config.getCurrentWeek()));
+        //sCourseList=mMyDBHelper.getCourseList();
+        //初始化课程表视图
+        initFrameLayout();
+
+        //读取时间数据
+        sTimes = new FileUtils<Time[]>().readFromJson(this, FileUtils.TIME_FILE_NAME, Time[].class);
+
+        //读取课程数据
+//        sCourseList = new FileUtils<ArrayList<Course>>().readFromJson(
+//                this,
+//                FileUtils.TIMETABLE_FILE_NAME,
+//                new TypeToken<ArrayList<Course>>() {
+//                }.getType());
+
+        sCourseList = TimeTableUtil.getCourseStart();
 
         //更新节数表头
         updateClassNumHeader();

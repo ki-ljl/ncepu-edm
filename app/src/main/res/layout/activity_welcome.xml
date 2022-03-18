@@ -10,7 +10,9 @@
         android:layout_height="match_parent"
         android:id="@+id/iv_1"
         android:background="#FFFFFF"
-        android:src="@drawable/init_bg_y"
+        android:src="@drawable/welcome_ki"
         android:scaleType="fitXY">
     </ImageView>
 </LinearLayout>
+
+<!--init_bg_y-->

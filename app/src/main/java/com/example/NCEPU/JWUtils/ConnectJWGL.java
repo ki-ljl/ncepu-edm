@@ -16,6 +16,7 @@ import com.example.NCEPU.Utils.Grade;
 import com.example.NCEPU.Utils.Plan;
 import com.example.NCEPU.Utils.SubPlan;
 import com.example.NCEPU.Utils.CourseUtil;
+import com.example.NCEPU.Utils.ToastUtil;
 
 //import org.apache.pdfbox.pdmodel.PDDocument;
 //import org.apache.pdfbox.rendering.PDFRenderer;
@@ -280,8 +281,7 @@ public class ConnectJWGL {
         return 0;
     }
 
-    // 获取课表信息
-    public ArrayList<CourseUtil> getStudentTimetable() throws Exception {
+    public ArrayList<CourseUtil> getStudentTimetableInit() throws Exception {
         StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         //先找到学年和学期
@@ -297,18 +297,14 @@ public class ConnectJWGL {
         for(Element element : lis) {
             if(element.attr("selected").equals("selected")) {
                 year = element.text().substring(0, 4).replace(" ", "");
-//                System.out.println(element.text());
             }
         }
         Elements lis1 = document.getElementsByAttributeValue("id", "xqm").select("option");
         for(Element element : lis1) {
             if(element.attr("selected").equals("selected")) {
                 term = Integer.parseInt(element.text().replace(" ", ""));
-//                System.out.println(element.text());
             }
         }
-//        System.out.println(year);
-//        System.out.println(term);
 //        year = "2019"; term = 1;
         connection = Jsoup.connect(url+ "/jwglxt/kbcx/xskbcx_cxXsKb.html?gnmkdm=N2151");
         connection.header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");
@@ -365,6 +361,92 @@ public class ConnectJWGL {
             courseUtil.setWeekOfTerm(weekOfTerm);
             list.add(courseUtil);
         }
+        return list;
+    }
+
+    // 获取课表信息
+    public ArrayList<CourseUtil> getStudentTimetable(String year, int term) throws Exception {
+        StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        //先找到学年和学期
+//        String year = "2019";
+//        int term = 2;
+//        connection = Jsoup.connect(url+ "/jwglxt/kbcx/xskbcx_cxXskbcxIndex.html?gnmkdm=N2151");
+//        connection.header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");
+//        response = connection.cookies(cookies_innet).cookies(cookies).execute();
+//        Map<String, String> cook = response.cookies();
+//        document = Jsoup.parse(response.body());
+////        System.out.println(document);
+//        Elements lis = document.getElementsByAttributeValue("id", "xnm").select("option");
+//        for(Element element : lis) {
+//            if(element.attr("selected").equals("selected")) {
+//                year = element.text().substring(0, 4).replace(" ", "");
+//            }
+//        }
+//        Elements lis1 = document.getElementsByAttributeValue("id", "xqm").select("option");
+//        for(Element element : lis1) {
+//            if(element.attr("selected").equals("selected")) {
+//                term = Integer.parseInt(element.text().replace(" ", ""));
+//            }
+//        }
+//        year = "2019"; term = 1;
+        System.out.println(year + " " + term);
+        connection = Jsoup.connect(url+ "/jwglxt/kbcx/xskbcx_cxXsKb.html?gnmkdm=N2151");
+        connection.header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20100101 Firefox/29.0");
+        connection.data("xnm",year);
+        connection.data("xqm",String.valueOf(term * term * 3));
+        connection.header("Connection", "keep-alive");
+        response = connection.cookies(cookies_innet).cookies(cookies).method(Connection.Method.POST).ignoreContentType(true).followRedirects(true).timeout(60000).execute();
+        JSONObject jsonObject = JSON.parseObject(response.body());
+        ArrayList<CourseUtil> list = new ArrayList<>();
+        if(jsonObject.get("kbList") == null){
+//            System.out.println("暂时没有安排课程");
+            return list;
+        }
+        String day[] = {"星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"};
+        JSONArray timeTable = JSON.parseArray(jsonObject.getString("kbList"));
+//        System.out.println(String.valueOf(year) + " -- " + String.valueOf(year + 1) + "学年 " + "第" + term + "学期");
+        for (Iterator iterator = timeTable.iterator(); iterator.hasNext();) {
+            JSONObject lesson = (JSONObject) iterator.next();
+//            System.out.println(lesson.getString("xqjmc") + " " +
+//                    lesson.getString("jc") + " " +
+//                    lesson.getString("kcmc") + " " +
+//                    lesson.getString("xm") + " " +
+//                    lesson.getString("xqmc") + " " +
+//                    lesson.getString("cdmc") + " " +
+//                    lesson.getString("zcd"));
+            CourseUtil courseUtil = new CourseUtil();
+            String dayOfWeek = lesson.getString("xqjmc");  //周几上课
+//            System.out.println(dayOfWeek);
+//            System.out.println(getIndex(day, dayOfWeek));
+            courseUtil.setDayOfWeek(getIndex(day, dayOfWeek));//1-7
+            String timeOfDay = lesson.getString("jc");  //3-4节,最多11节课
+            int _index = timeOfDay.indexOf("-");
+            int begin = Integer.parseInt(timeOfDay.substring(0, _index));
+            int end = Integer.parseInt(timeOfDay.substring(_index + 1, timeOfDay.length() - 1));
+            courseUtil.setClassStart(begin);
+            courseUtil.setClassLength(end - begin + 1);
+            String name = lesson.getString("kcmc");  //课程名称
+            courseUtil.setName(name);
+            String teacher = lesson.getString("xm");
+            courseUtil.setTeacher(teacher);
+            String address = lesson.getString("xqmc") + lesson.getString("cdmc");
+            courseUtil.setClassRoom(address);
+            String week = lesson.getString("zcd");  //1-16周
+            _index = week.indexOf("-");
+            int week_begin = Integer.parseInt(week.substring(0, _index));
+            int week_end = Integer.parseInt(week.substring(_index + 1, week.length() - 1));
+            List<Boolean> weekOfTerm = new ArrayList<>(25);
+            for(int i = 0; i < 25; i++) {
+                weekOfTerm.add(false);
+            }
+            for(int i = week_begin - 1; i < week_end; i++) {
+                weekOfTerm.set(i, true);
+            }
+            courseUtil.setWeekOfTerm(weekOfTerm);
+            list.add(courseUtil);
+        }
+        System.out.println("当前size为:" + list.size());
         return list;
     }
 

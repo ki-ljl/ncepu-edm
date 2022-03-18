@@ -212,15 +212,15 @@ public class GradeRateActivity extends AppCompatActivity implements View.OnClick
             case R.id.school_year_rate:
                 @SuppressLint("WrongConstant") final FlipShareView shareYear = new FlipShareView.Builder(this, school_year)
                         .addItem(new ShareItem("全部", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2024-2025", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2023-2024", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2022-2023", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2021-2022", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2020-2021", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2019-2020", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2018-2019", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2017-2018", Color.BLACK, 0xffEEEEFF))
-                        .addItem(new ShareItem("2016-2017", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("24-25", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("23-24", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("22-23", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("21-22", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("20-21", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("19-20", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("18-19", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("17-18", Color.BLACK, 0xffEEEEFF))
+                        .addItem(new ShareItem("16-17", Color.BLACK, 0xffEEEEFF))
                         .setItemDuration(0)
                         .setAnimType(FlipShareView.AUTOFILL_TYPE_LIST)
                         .create();
@@ -283,6 +283,7 @@ public class GradeRateActivity extends AppCompatActivity implements View.OnClick
 
             case R.id.btn_query_rate:
                 String year = school_year.getText().toString();
+                year = "20" + year;
                 String semester_ = term.getText().toString();
                 String course_nature = nature.getText().toString();
                 String text1 = year + "-" + semester_;

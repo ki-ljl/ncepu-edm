@@ -105,12 +105,12 @@
         app:right_text="男" />
 
     <com.example.NCEPU.Utils.ItemView
-        android:id="@+id/signName"
+        android:id="@+id/github"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        app:left_icon="@drawable/ic_sign_name"
-        app:left_text="个性签名"
-        app:right_text="Hungry And Humble" />
+        app:left_icon="@drawable/ic_github"
+        app:left_text="开源地址"
+        app:right_text="GitHub" />
 
     <com.example.NCEPU.Utils.ItemView
         android:id="@+id/csdn"
@@ -121,6 +121,14 @@
         app:right_text="联系开发者"/>
 
     <com.example.NCEPU.Utils.ItemView
+        android:id="@+id/wechat"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:left_icon="@drawable/ic_wechat"
+        app:left_text="作者公众号"
+        app:right_text="KI的算法杂记" />
+
+    <com.example.NCEPU.Utils.ItemView
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
@@ -128,12 +136,5 @@
         app:left_text="退出登录"
         app:right_text="" />
 
-    <com.example.NCEPU.Utils.ItemView
-        android:id="@+id/version"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        app:left_icon="@drawable/ic_about"
-        app:left_text="检查更新"
-        app:right_text="" />
 </LinearLayout>
 </ScrollView>

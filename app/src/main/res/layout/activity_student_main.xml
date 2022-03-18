@@ -19,12 +19,12 @@
             android:text="查询"
             android:textSize="14sp"/>
 
-        <RadioButton
-            android:id="@+id/rb_predict"
-            style="@style/tab_menu_item"
-            android:drawableTop="@drawable/tab_menu_better"
-            android:text="挖掘"
-            android:textSize="14sp"/>
+<!--        <RadioButton-->
+<!--            android:id="@+id/rb_predict"-->
+<!--            style="@style/tab_menu_item"-->
+<!--            android:drawableTop="@drawable/tab_menu_better"-->
+<!--            android:text="挖掘"-->
+<!--            android:textSize="14sp"/>-->
 
         <RadioButton
             android:id="@+id/rb_user"
