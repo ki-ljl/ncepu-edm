@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/NCEPU-Android-green)
+![](https://img.shields.io/badge/NCEPU-Android-red)
 
 # 使用方法
 安装app/release/app-release.apk文件。
