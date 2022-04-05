@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/NCEPU-Android-red)
 
 # 使用方法
-安装app/release/app-release.apk文件。
+安装app/release/app-release.apk文件，然后使用自己的学号、内网VPN密码以及教务系统密码进行登录使用。
 
 # 1 APP介绍
 ## 1.1 说明
